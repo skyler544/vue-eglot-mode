@@ -3,7 +3,7 @@
 ;; Author: Skyler Mayfield <skyler544@gmail.com>
 ;; URL: https://github.com/skyler544/vue-eglot-mode
 ;; Version: 0.1
-;; Package-Requires: ((emacs "30.1") eglot web-mode)
+;; Package-Requires: ((emacs "30.1") (eglot "1.17.30") (web-mode "17.3.21"))
 ;; Keywords: convenience, languages
 ;;
 ;; This file is not part of GNU Emacs.
