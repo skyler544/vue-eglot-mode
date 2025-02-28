@@ -19,9 +19,9 @@
 ;; Usage:
 ;;
 ;; (use-package vue-eglot-mode
+;;   :ensure t
 ;;   :vc (:url "https://github.com/skyler544/vue-eglot-mode")
-;;   :mode "\\.vue$"
-;;   :hook (vue-eglot-mode . eglot-ensure))
+;;   :mode "\\.vue$")
 ;;
 ;; License:
 ;;
