@@ -1,6 +1,45 @@
-;;; vue-eglot-mode.el -*- lexical-binding: t -*-
+;;; vue-eglot-mode.el --- Get eglot and volar to play nice with each other -*- lexical-binding: t; -*-
 
+;; Author: Skyler Mayfield <skyler544@gmail.com>
+;; URL: https://github.com/skyler544/vue-eglot-mode
+;; Version: 0.1
+;; Package-Requires: ((emacs "30.1") eglot web-mode)
+;; Keywords: convenience, languages
+;;
+;; This file is not part of GNU Emacs.
+;;
+;;; Commentary:
+;;
+;; This package provides a minimal working example for how to get volar and
+;; eglot to work with each other.
+;;
+;; See this discussion for more:
 ;; https://github.com/joaotavora/eglot/discussions/1184
+;;
+;; Usage:
+;;
+;; (use-package vue-eglot-mode
+;;   :vc (:url "https://github.com/skyler544/vue-eglot-mode")
+;;   :mode "\\.vue$"
+;;   :hook (vue-eglot-mode . eglot-ensure))
+;;
+;; License:
+;;
+;;  This program is free software: you can redistribute it and/or modify
+;;  it under the terms of the GNU General Public License as published by
+;;  the Free Software Foundation, either version 3 of the License, or
+;;  (at your option) any later version.
+;;
+;;  This program is distributed in the hope that it will be useful,
+;;  but WITHOUT ANY WARRANTY; without even the implied warranty of
+;;  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;;  GNU General Public License for more details.
+;;
+;;  You should have received a copy of the GNU General Public License
+;;  along with this program.  If not, see <https://www.gnu.org/licenses/>.
+;;
+;;; Code:
+
 
 (require 'eglot)
 (require 'web-mode)
