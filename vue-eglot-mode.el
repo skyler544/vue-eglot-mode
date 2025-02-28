@@ -13,14 +13,20 @@
                     "lib"
                     (string-trim-right
                      (shell-command-to-string
-                      "npm list --parseable typescript | head -n1")))))
+                      (concat
+                       "NODE_NO_WARNINGS=1 "
+                       "npm list --parseable typescript "
+                       "| head -n1"))))))
     `(:typescript (:tsdk ,tsdk-path)
                   :vue (:hybridMode :json-false))))
 
 (put 'vue-eglot-mode 'eglot-language-id "vue")
 
 (add-to-list 'eglot-server-programs
-             `(vue-eglot-mode . ("vue-language-server" "--stdio" :initializationOptions ,(vue-eglot-init-options))))
+             `(vue-eglot-mode . ("vue-language-server"
+                                 "--stdio"
+                                 :initializationOptions
+                                 ,(vue-eglot-init-options))))
 
 
 (provide 'vue-eglot-mode)
