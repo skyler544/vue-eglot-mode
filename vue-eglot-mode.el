@@ -48,14 +48,15 @@
 (define-derived-mode vue-eglot-mode web-mode "Vue")
 
 (defun vue-eglot-init-options ()
-  (let ((tsdk-path (expand-file-name
-                    "lib"
-                    (string-trim-right
-                     (shell-command-to-string
-                      (concat
-                       "NODE_NO_WARNINGS=1 "
-                       "npm list --parseable typescript "
-                       "| head -n1"))))))
+  (let* ((no-warnings "NODE_NO_WARNINGS=1 ")
+         (filter "| head -n1")
+         (base "npm list --parseable typescript ")
+         (global "npm list --global --parseable typescript ")
+         (tsdk-base-path (string-trim-right (shell-command-to-string (concat no-warnings base filter))))
+         (tsdk-global-path (string-trim-right (shell-command-to-string (concat no-warnings global filter))))
+         (tsdk-path (expand-file-name "lib" (if (string-empty-p tsdk-base-path)
+                                                tsdk-global-path
+                                              tsdk-base-path))))
     `(:typescript (:tsdk ,tsdk-path)
                   :vue (:hybridMode :json-false))))
 
