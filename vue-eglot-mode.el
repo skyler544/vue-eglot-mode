@@ -3,7 +3,7 @@
 ;; Author: Skyler Mayfield <skyler544@gmail.com>
 ;; URL: https://github.com/skyler544/vue-eglot-mode
 ;; Version: 0.1
-;; Package-Requires: ((emacs "30.1") (eglot "1.17.30") (web-mode "17.3.21"))
+;; Package-Requires: ((emacs "30.1") (eglot "1.17.30"))
 ;; Keywords: convenience, languages
 ;;
 ;; This file is not part of GNU Emacs.
@@ -42,10 +42,10 @@
 
 
 (require 'eglot)
-(require 'web-mode)
+(require 'vue-ts-mode)
 
 ;;;###autoload
-(define-derived-mode vue-eglot-mode web-mode "Vue")
+(define-derived-mode vue-eglot-mode vue-ts-mode "Vue")
 
 (defun vue-eglot-init-options ()
   (let* ((no-warnings "NODE_NO_WARNINGS=1 ")
