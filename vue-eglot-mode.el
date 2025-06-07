@@ -47,6 +47,9 @@
 ;;;###autoload
 (define-derived-mode vue-eglot-mode vue-ts-mode "Vue")
 
+;;;###autoload
+(add-to-list 'auto-mode-alist '("\\.vue\\'" . vue-eglot-mode))
+
 (defun vue-eglot-init-options ()
   (let* ((no-warnings "NODE_NO_WARNINGS=1 ")
          (filter "| head -n1")
